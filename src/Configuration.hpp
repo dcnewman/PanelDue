@@ -18,7 +18,10 @@
 
 // Define DISPLAY_TYPE to be one of the above 3 types of display
 
+#ifndef DISPLAY_TYPE
 #define DISPLAY_TYPE	DISPLAY_TYPE_ITDB02_43
+#endif
+
 //#define DISPLAY_TYPE	DISPLAY_TYPE_INVERTED_43
 //#define DISPLAY_TYPE	DISPLAY_TYPE_ITDB02_50
 

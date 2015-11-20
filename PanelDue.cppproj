@@ -2,7 +2,7 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectVersion>6.2</ProjectVersion>
+    <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.Atmel.ARMGCC.CPP</ToolchainName>
     <ProjectGuid>{26d658e4-f528-46cb-95be-04bcd132c099}</ProjectGuid>
     <avrdevice>ATSAM3S2B</avrdevice>
@@ -201,8 +201,9 @@
       </framework-data>
     </AsfFrameworkConfig>
     <avrtool />
+    <ExternalProgrammingToolCommand />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release-4.3' ">
     <ToolchainSettings>
       <ArmGccCpp>
         <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
@@ -256,6 +257,7 @@
             <Value>NDEBUG</Value>
             <Value>BOARD=USER_BOARD</Value>
             <Value>ARM_MATH_CM3=true</Value>
+            <Value>SCREEN_43</Value>
           </ListValues>
         </armgcccpp.compiler.symbols.DefSymbols>
         <armgcccpp.compiler.directories.IncludePaths>
@@ -292,6 +294,7 @@
         <armgcccpp.compiler.optimization.level>Optimize more (-O2)</armgcccpp.compiler.optimization.level>
         <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
         <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
+        <armgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</armgcccpp.compiler.miscellaneous.OtherFlags>
         <armgcccpp.linker.general.NoSharedLibraries>True</armgcccpp.linker.general.NoSharedLibraries>
         <armgcccpp.linker.general.UseNewlibNano>True</armgcccpp.linker.general.UseNewlibNano>
         <armgcccpp.linker.libraries.Libraries>
@@ -352,6 +355,8 @@
         </armgcccpp.preprocessingassembler.general.IncludePaths>
       </ArmGccCpp>
     </ToolchainSettings>
+    <OutputFileName>PanelDue-4.3</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
@@ -517,8 +522,341 @@
       </ArmGccCpp>
     </ToolchainSettings>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release-5.0' ">
+    <ToolchainSettings>
+      <ArmGccCpp>
+  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+  <armgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>BOARD=USER_BOARD</Value>
+      <Value>ARM_MATH_CM3=true</Value>
+    </ListValues>
+  </armgcc.compiler.symbols.DefSymbols>
+  <armgcc.compiler.directories.DefaultIncludePath>False</armgcc.compiler.directories.DefaultIncludePath>
+  <armgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../common/applications/user_application/user_board/config</Value>
+      <Value>../src/config</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/include</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/source/templates</Value>
+      <Value>../src/ASF/sam/utils</Value>
+      <Value>../src/ASF/sam/utils/preprocessor</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam/utils/header_files</Value>
+      <Value>../src/ASF/common/boards/user_board</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/sam/drivers/pio</Value>
+      <Value>../src/ASF/sam/drivers/pmc</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/sam/drivers/wdt</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/uart</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/sam/drivers/efc</Value>
+      <Value>../src/ASF/sam/services/flash_efc</Value>
+      <Value>../src/ASF/sam/drivers/rstc</Value>
+    </ListValues>
+  </armgcc.compiler.directories.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize more (-O2)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
+  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+  <armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500</armgcc.compiler.miscellaneous.OtherFlags>
+  <armgcccpp.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>BOARD=USER_BOARD</Value>
+      <Value>ARM_MATH_CM3=true</Value>
+      <Value>SCREEN_50</Value>
+    </ListValues>
+  </armgcccpp.compiler.symbols.DefSymbols>
+  <armgcccpp.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3s\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+      <Value>../src/config</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/include</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/source/templates</Value>
+      <Value>../src/ASF/sam/utils</Value>
+      <Value>../src/ASF/sam/utils/preprocessor</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam/utils/header_files</Value>
+      <Value>../src/ASF/common/boards/user_board</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/sam/drivers/pio</Value>
+      <Value>../src/ASF/sam/drivers/pmc</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/sam/drivers/wdt</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/uart</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/sam/drivers/efc</Value>
+      <Value>../src/ASF/sam/services/flash_efc</Value>
+      <Value>../src/ASF/sam/drivers/rstc</Value>
+    </ListValues>
+  </armgcccpp.compiler.directories.IncludePaths>
+  <armgcccpp.compiler.optimization.level>Optimize more (-O2)</armgcccpp.compiler.optimization.level>
+  <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
+  <armgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</armgcccpp.compiler.miscellaneous.OtherFlags>
+  <armgcccpp.linker.general.NoSharedLibraries>True</armgcccpp.linker.general.NoSharedLibraries>
+  <armgcccpp.linker.general.UseNewlibNano>True</armgcccpp.linker.general.UseNewlibNano>
+  <armgcccpp.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libarm_cortexM3l_math</Value>
+      <Value>libm</Value>
+    </ListValues>
+  </armgcccpp.linker.libraries.Libraries>
+  <armgcccpp.linker.libraries.LibrarySearchPaths>
+    <ListValues>
+      <Value>../cmsis/linkerScripts</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+    </ListValues>
+  </armgcccpp.linker.libraries.LibrarySearchPaths>
+  <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+  <armgcccpp.linker.memorysettings.ExternalRAM />
+  <armgcccpp.linker.miscellaneous.LinkerFlags>-T../src/ASF/sam/utils/linker_scripts/sam3s/sam3s2/gcc/flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
+  <armgcccpp.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/sam/drivers/rstc</Value>
+    </ListValues>
+  </armgcccpp.assembler.general.IncludePaths>
+  <armgcccpp.preprocessingassembler.general.IncludePaths>
+    <ListValues>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3s\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3s\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+      <Value>../common/applications/user_application/user_board/config</Value>
+      <Value>../src/config</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/include</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/source/templates</Value>
+      <Value>../src/ASF/sam/utils</Value>
+      <Value>../src/ASF/sam/utils/preprocessor</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam/utils/header_files</Value>
+      <Value>../src/ASF/common/boards/user_board</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/sam/drivers/pio</Value>
+      <Value>../src/ASF/sam/drivers/pmc</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/sam/drivers/wdt</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/uart</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/sam/drivers/efc</Value>
+      <Value>../src/ASF/sam/services/flash_efc</Value>
+      <Value>../src/ASF/sam/drivers/rstc</Value>
+    </ListValues>
+  </armgcccpp.preprocessingassembler.general.IncludePaths>
+</ArmGccCpp>
+    </ToolchainSettings>
+    <OutputPath>bin\Release-5.0\</OutputPath>
+    <OutputFileName>PanelDue-5.0</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release-7.0' ">
+    <ToolchainSettings>
+      <ArmGccCpp>
+  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+  <armgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>BOARD=USER_BOARD</Value>
+      <Value>ARM_MATH_CM3=true</Value>
+    </ListValues>
+  </armgcc.compiler.symbols.DefSymbols>
+  <armgcc.compiler.directories.DefaultIncludePath>False</armgcc.compiler.directories.DefaultIncludePath>
+  <armgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../common/applications/user_application/user_board/config</Value>
+      <Value>../src/config</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/include</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/source/templates</Value>
+      <Value>../src/ASF/sam/utils</Value>
+      <Value>../src/ASF/sam/utils/preprocessor</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam/utils/header_files</Value>
+      <Value>../src/ASF/common/boards/user_board</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/sam/drivers/pio</Value>
+      <Value>../src/ASF/sam/drivers/pmc</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/sam/drivers/wdt</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/uart</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/sam/drivers/efc</Value>
+      <Value>../src/ASF/sam/services/flash_efc</Value>
+      <Value>../src/ASF/sam/drivers/rstc</Value>
+    </ListValues>
+  </armgcc.compiler.directories.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize more (-O2)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
+  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+  <armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Waggregate-return  -Wmissing-declarations -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Wlong-long -Wunreachable-code -Wcast-align --param max-inline-insns-single=500</armgcc.compiler.miscellaneous.OtherFlags>
+  <armgcccpp.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>NDEBUG</Value>
+      <Value>BOARD=USER_BOARD</Value>
+      <Value>ARM_MATH_CM3=true</Value>
+      <Value>SCREEN_70</Value>
+    </ListValues>
+  </armgcccpp.compiler.symbols.DefSymbols>
+  <armgcccpp.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3s\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+      <Value>../src/config</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/include</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/source/templates</Value>
+      <Value>../src/ASF/sam/utils</Value>
+      <Value>../src/ASF/sam/utils/preprocessor</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam/utils/header_files</Value>
+      <Value>../src/ASF/common/boards/user_board</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/sam/drivers/pio</Value>
+      <Value>../src/ASF/sam/drivers/pmc</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/sam/drivers/wdt</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/uart</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/sam/drivers/efc</Value>
+      <Value>../src/ASF/sam/services/flash_efc</Value>
+      <Value>../src/ASF/sam/drivers/rstc</Value>
+    </ListValues>
+  </armgcccpp.compiler.directories.IncludePaths>
+  <armgcccpp.compiler.optimization.level>Optimize more (-O2)</armgcccpp.compiler.optimization.level>
+  <armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcccpp.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcccpp.compiler.warnings.AllWarnings>True</armgcccpp.compiler.warnings.AllWarnings>
+  <armgcccpp.compiler.miscellaneous.OtherFlags>-std=gnu++11</armgcccpp.compiler.miscellaneous.OtherFlags>
+  <armgcccpp.linker.general.NoSharedLibraries>True</armgcccpp.linker.general.NoSharedLibraries>
+  <armgcccpp.linker.general.UseNewlibNano>True</armgcccpp.linker.general.UseNewlibNano>
+  <armgcccpp.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libarm_cortexM3l_math</Value>
+      <Value>libm</Value>
+    </ListValues>
+  </armgcccpp.linker.libraries.Libraries>
+  <armgcccpp.linker.libraries.LibrarySearchPaths>
+    <ListValues>
+      <Value>../cmsis/linkerScripts</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+    </ListValues>
+  </armgcccpp.linker.libraries.LibrarySearchPaths>
+  <armgcccpp.linker.optimization.GarbageCollectUnusedSections>True</armgcccpp.linker.optimization.GarbageCollectUnusedSections>
+  <armgcccpp.linker.memorysettings.ExternalRAM />
+  <armgcccpp.linker.miscellaneous.LinkerFlags>-T../src/ASF/sam/utils/linker_scripts/sam3s/sam3s2/gcc/flash.ld</armgcccpp.linker.miscellaneous.LinkerFlags>
+  <armgcccpp.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/sam/drivers/rstc</Value>
+    </ListValues>
+  </armgcccpp.assembler.general.IncludePaths>
+  <armgcccpp.preprocessingassembler.general.IncludePaths>
+    <ListValues>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3s\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL\sam3s\include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\CMSIS\Include</Value>
+      <Value>%24(ToolchainDir)\..\..\CMSIS_Atmel\Device\ATMEL</Value>
+      <Value>../common/applications/user_application/user_board/config</Value>
+      <Value>../src/config</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/include</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src</Value>
+      <Value>../src/ASF/sam/utils/cmsis/sam3s/source/templates</Value>
+      <Value>../src/ASF/sam/utils</Value>
+      <Value>../src/ASF/sam/utils/preprocessor</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/sam/utils/header_files</Value>
+      <Value>../src/ASF/common/boards/user_board</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/sam/drivers/pio</Value>
+      <Value>../src/ASF/sam/drivers/pmc</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/services/delay</Value>
+      <Value>../src/ASF/sam/drivers/wdt</Value>
+      <Value>../src/ASF/sam/drivers/pwm</Value>
+      <Value>../src/ASF/sam/drivers/uart</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src/ASF/sam/drivers/efc</Value>
+      <Value>../src/ASF/sam/services/flash_efc</Value>
+      <Value>../src/ASF/sam/drivers/rstc</Value>
+    </ListValues>
+  </armgcccpp.preprocessingassembler.general.IncludePaths>
+</ArmGccCpp>
+    </ToolchainSettings>
+    <OutputFileName>PanelDue-7.0</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputPath>bin\Release-7.0\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="src\ASF\sam\drivers\efc\efc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\Reset.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Library\Misc.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Library\Misc.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\MessageLog.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\MessageLog.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\RequestTimer.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\RequestTimer.hpp">
       <SubType>compile</SubType>
     </Compile>
     <None Include="src\ASF\sam\drivers\efc\efc.h">
@@ -545,12 +883,6 @@
     <None Include="src\ASF\sam\services\flash_efc\flash_efc.h">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="src\Buzzer.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\Buzzer.hpp">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\Configuration.hpp">
       <SubType>compile</SubType>
     </Compile>
@@ -560,40 +892,94 @@
     <Compile Include="src\Fields.hpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FlashStorage.cpp">
+    <Compile Include="src\FileManager.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FlashStorage.hpp">
+    <Compile Include="src\FileManager.hpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\glcd19x21.cpp">
+    <Compile Include="src\Fonts\glcd19x21.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\glcd28x32.cpp">
+    <Compile Include="src\Fonts\glcd28x32.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Mem.cpp">
+    <Compile Include="src\Hardware\Buzzer.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Mem.hpp">
+    <Compile Include="src\Hardware\Buzzer.hpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Misc.cpp">
+    <Compile Include="src\Hardware\DisplayOrientation.hpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\Misc.hpp">
+    <Compile Include="src\Hardware\FlashStorage.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\FlashStorage.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\HW_AVR.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\HW_AVR_defines.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\Mem.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\Mem.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\memorysaver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\OneBitPort.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\OneBitPort.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\SerialIo.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\SerialIo.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\SysTick.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\SysTick.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\UTFT.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\UTFT.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\UTouch.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Hardware\UTouch.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Icons\Icons_21h.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Icons\Icons_21h.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Icons\Icons_30h.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Icons\Icons_30h.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\Library\Vector.hpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\PanelDue.hpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\SysTick.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\SysTick.hpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\Vector.hpp">
       <SubType>compile</SubType>
     </Compile>
     <None Include="src\ASF\sam\drivers\pwm\pwm.h">
@@ -611,15 +997,6 @@
     <Compile Include="src\Display.hpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\DisplayOrientation.hpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\OneBitPort.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\OneBitPort.hpp">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\PanelDue.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -627,24 +1004,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\Print.hpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\SerialIo.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\SerialIo.hpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\UTFT.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\UTFT.hpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\UTouch.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\UTouch.hpp">
       <SubType>compile</SubType>
     </Compile>
     <None Include="src\ASF\common\services\clock\sam3s\pll.h">
@@ -716,15 +1075,6 @@
     <None Include="src\ASF\sam\drivers\wdt\wdt.h">
       <SubType>compile</SubType>
     </None>
-    <Compile Include="src\HW_AVR.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\HW_AVR_defines.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\memorysaver.h">
-      <SubType>compile</SubType>
-    </Compile>
     <None Include="src\ASF\common\boards\board.h">
       <SubType>compile</SubType>
     </None>
@@ -1094,6 +1444,10 @@
     <Folder Include="src\ASF\thirdparty\CMSIS\Lib\" />
     <Folder Include="src\ASF\thirdparty\CMSIS\Lib\GCC\" />
     <Folder Include="src\config\" />
+    <Folder Include="src\Fonts" />
+    <Folder Include="src\Icons" />
+    <Folder Include="src\Hardware" />
+    <Folder Include="src\Library" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
